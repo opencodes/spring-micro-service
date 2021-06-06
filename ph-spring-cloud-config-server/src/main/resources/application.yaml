@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/opencodes/environment-variable-repo.git
+
+server:
+  port: ${port:8888}
+
