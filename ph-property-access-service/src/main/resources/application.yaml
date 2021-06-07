@@ -1,8 +1,2 @@
-spring:
-  application:
-    name: ph-property-access-service
-  config:
-    import: optional:configserver:http://localhost:8888
-
 server:
   port: ${port:8100}

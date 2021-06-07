@@ -1,4 +1,4 @@
-package com.rkjha.microservice.phpropertyaccessservice;
+package com.rkjha.microservice.phpropertyaccessservice.controller;
 
 import com.rkjha.microservice.phpropertyaccessservice.beans.PropertyAccessBeans;
 import com.rkjha.microservice.phpropertyaccessservice.beans.PropertyAccessValue;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
  * @project ph-property-access-service
  */
 @RestController
-@RequestMapping(name = "/access")
+@RequestMapping(name = "/")
 public class PropertyAccessController {
     @Autowired
     private PropertyAccessBeans propertyAccessBeans;
 
-    @GetMapping("accessPropertyFile")
+    @GetMapping("properties")
     public PropertyAccessValue accessPropertyFile(){
         return new PropertyAccessValue(propertyAccessBeans.getName(),propertyAccessBeans.getDescription());
     }
