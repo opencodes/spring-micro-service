@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: ph-product-enquiry-service
+
+server:
+  port: ${port:8700}
+
