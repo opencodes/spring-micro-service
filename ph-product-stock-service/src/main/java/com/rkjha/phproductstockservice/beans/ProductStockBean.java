@@ -8,7 +8,6 @@ public class ProductStockBean {
     private BigDecimal productPrice;
     private String productAvailability;
     private double discountOffer;
-
     private int port;
 
     public ProductStockBean(Long id, String productName, BigDecimal productPrice, String productAvailability, double discountOffer, int port) {

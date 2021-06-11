@@ -5,9 +5,7 @@ import com.rkjha.phproductstockservice.entity.ProductStockRepository;
 import com.rkjha.phproductstockservice.entity.ProductStock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductStockController {
@@ -15,6 +13,12 @@ public class ProductStockController {
     ProductStockRepository productStockRepository;
     @Autowired
     Environment env;
+
+    @RequestMapping("/ping")
+    public String ping() {
+        System.out.println("local.server.port");
+        return  env.getProperty("local.server.port");
+    }
 
     @GetMapping("/check-product-stock/productName/{productName}/productAvailability/{productAvailability}")
     public ProductStockBean checkProductStock(@PathVariable String productName,

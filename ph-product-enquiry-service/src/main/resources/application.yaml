@@ -6,10 +6,7 @@ server:
   port: ${port:8700}
 
 
-#ph-product-stock-service:
-#  ribbon:
-#    eureka:
-#      enabled: false
-#    listOfServers: localhost:8800,localhost:8801
-#    ServerListRefreshInterval: 15000
+ph-product-stock-service:
+  ribbon:
+    listOfServers: localhost:8800,localhost:8801
 
