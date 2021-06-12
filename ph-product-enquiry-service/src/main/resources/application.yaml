@@ -5,8 +5,16 @@ spring:
 server:
   port: ${port:8700}
 
-
-ph-product-stock-service:
+productservice:
   ribbon:
     listOfServers: localhost:8800,localhost:8801
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    preferIpAddress: true
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
