@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: ph-spring-cloud-api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: productservice
+          uri: http://localhost:8700
+          order: 9000
+          predicates:
+            - Path=/**
+
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
+
+management.endpoints.web.exposure.include: '*'
+
+eureka:
+  instance:
+    hostname: localhost
+
+server:
+  port: ${port:8900}
+
+
+
