@@ -1,14 +1,14 @@
 spring:
   application:
     name: ph-spring-cloud-api-gateway
-  cloud:
-    gateway:
-      routes:
-        - id: productservice
-          uri: http://localhost:8700
-          order: 9000
-          predicates:
-            - Path=/**
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: productservice
+#          uri: http://localhost:8700
+#          order: 9000
+#          predicates:
+#            - Path=/**
 
 
 

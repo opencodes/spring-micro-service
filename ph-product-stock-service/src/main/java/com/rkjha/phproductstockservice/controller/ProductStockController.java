@@ -1,12 +1,14 @@
 package com.rkjha.phproductstockservice.controller;
 
+import brave.sampler.Sampler;
 import com.rkjha.phproductstockservice.beans.ProductStockBean;
 import com.rkjha.phproductstockservice.entity.ProductStockRepository;
 import com.rkjha.phproductstockservice.entity.ProductStock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin
 @RestController
 public class ProductStockController {
     @Autowired
@@ -18,6 +20,11 @@ public class ProductStockController {
     public String ping() {
         System.out.println("local.server.port");
         return  env.getProperty("local.server.port");
+    }
+
+    @Bean
+    public Sampler defaultSampler() {
+        return Sampler.ALWAYS_SAMPLE;
     }
 
     @GetMapping("/check-product-stock/productName/{productName}/productAvailability/{productAvailability}")
